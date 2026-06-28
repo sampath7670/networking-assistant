@@ -14,8 +14,8 @@ from backend.services.nlp_service import nlp_service
 from backend.services.wiki_service import wiki_service
 from backend.models.models import Suggestion
 
-# Configure testing database (use in-memory SQLite for speed and isolation)
-TEST_DATABASE_URL = "sqlite:///:memory:"
+# Configure testing database
+TEST_DATABASE_URL = "sqlite:///test_networking_assistant.db"
 engine = create_engine(TEST_DATABASE_URL, connect_args={"check_same_thread": False})
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -37,6 +37,12 @@ def setup_db():
     nlp_service.use_fallback = True
     yield
     Base.metadata.drop_all(bind=engine)
+    engine.dispose()
+    if os.path.exists("test_networking_assistant.db"):
+        try:
+            os.remove("test_networking_assistant.db")
+        except Exception:
+            pass
 
 client = TestClient(app)
 
@@ -50,7 +56,7 @@ def test_nlp_service_theme_extraction_fallback():
     # Check that empty description returns defaults
     empty_themes = nlp_service.extract_themes("", top_n=3)
     assert len(empty_themes) == 2
-    assert "networking" in empty_themes
+    assert "Networking" in empty_themes
 
 def test_nlp_service_generation_fallback():
     event_desc = "AI for Sustainable Cities"

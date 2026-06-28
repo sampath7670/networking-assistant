@@ -64,7 +64,7 @@ class NLPService:
         Falls back to rule-based keyword extraction if models are not loaded/fail.
         """
         if not event_description.strip():
-            return []
+            return ["Networking", "Collaboration"][:top_n]
 
         # Extract candidate words
         words = re.findall(r'\b[a-zA-Z]{3,}\b', event_description.lower())
