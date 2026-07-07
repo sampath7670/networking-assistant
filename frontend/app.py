@@ -50,6 +50,10 @@ html, body, [class*="css"], .stApp {
     margin-bottom: 20px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #ffffff !important;
+}
+.custom-card p, .custom-card span {
+    color: #ffffff !important;
 }
 .custom-card:hover {
     transform: translateY(-2px);
@@ -250,7 +254,7 @@ if menu == "🌟 Smart Starter Generator":
                 # HTML Container
                 st.markdown(f"""
                 <div class="custom-card">
-                    <p style="font-size: 1.05rem; line-height: 1.5; font-style: italic;">"{starter}"</p>
+                    <p style="font-size: 1.05rem; line-height: 1.5; font-style: italic; color: #ffffff !important;">"{starter}"</p>
                 </div>
                 """, unsafe_allow_html=True)
                 
@@ -388,7 +392,7 @@ elif menu == "📜 Networking History":
                     
                     st.markdown(f"""
                     <div style="background-color: rgba(15, 23, 42, 0.4); border-left: 3px solid #7c3aed; padding: 12px 18px; margin-bottom: 8px; border-radius:0 6px 6px 0;">
-                        <span style="font-style:italic;">"{starter}"</span>
+                        <span style="font-style:italic; color: #ffffff !important;">"{starter}"</span>
                     </div>
                     """, unsafe_allow_html=True)
                     
