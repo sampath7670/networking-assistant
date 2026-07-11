@@ -14,3 +14,5 @@ In addition to generating engaging conversation prompts, the application provide
 * ⚡ **Fast & Interactive Interface** – Built with **FastAPI** for high-performance backend services and **Streamlit** for an intuitive, responsive user interface.
 
 The project demonstrates the practical application of **Natural Language Processing (NLP)**, **Generative AI**, and **RESTful APIs** to enhance networking experiences by making conversations more engaging, informed, and personalized.
+
+https://github.com/anitha9100
